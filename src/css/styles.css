@@ -14,6 +14,7 @@
   --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   --transition: all 0.3s ease;
   --modal-z-index: 1000;
+  --nav-bg: #1a1a1a;
 }
 
 * {
@@ -35,7 +36,7 @@ body.modal-open {
 
 /* Header */
 header {
-  background-color: var(--dark-color);
+  background-color: var(--nav-bg);
   padding: 20px 50px;
   display: flex;
   justify-content: space-between;
@@ -56,6 +57,13 @@ header {
 }
 
 /* Navegação */
+nav {
+  border: 1px solid var(--dark-color);
+  border-radius: 4px;
+  padding: 5px;
+  background-color: var(--nav-bg);
+}
+
 nav ul {
   list-style: none;
   display: flex;
@@ -76,12 +84,31 @@ nav ul li a {
   font-weight: bold;
   padding: 8px 12px;
   transition: var(--transition);
-  border-radius: var(--border-radius);
+  border-radius: 4px;
+  position: relative;
 }
 
-nav ul li a:hover {
+nav ul li a:hover,
+nav ul li a.active {
   color: var(--primary-color);
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-color);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after {
+  width: 80%;
 }
 
 /* Links para login/cadastro */
@@ -215,7 +242,7 @@ nav ul li a:hover {
 
 /* Footer */
 footer {
-  background: var(--dark-color);
+  background: var(--nav-bg);
   color: var(--light-color);
   padding: 50px 20px;
   text-align: center;
@@ -417,7 +444,7 @@ footer {
   nav ul {
     display: none;
     flex-direction: column;
-    background: var(--dark-color);
+    background: var(--nav-bg);
     position: fixed;
     top: 0;
     right: 0;
@@ -425,6 +452,7 @@ footer {
     height: 100vh;
     padding: 80px 20px 20px;
     gap: 15px;
+    border: 1px solid var(--dark-color);
   }
 
   nav.active ul {
