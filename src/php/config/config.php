@@ -1,5 +1,4 @@
 <?php
-// Configurações do ambiente
 return [
     'database' => [
         'host' => 'localhost',
