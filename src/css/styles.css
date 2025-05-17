@@ -128,7 +128,7 @@ a:focus, button:focus, .botao:focus {
   text-align: center;
   color: var(--light-color);
   background: var(--dark-color);
-  padding: 40px 0;
+  padding: 40px 113.4px;
   min-height: 350px;
   display: flex;
   flex-direction: column;
@@ -138,7 +138,6 @@ a:focus, button:focus, .botao:focus {
 .banner img {
   display: block;
   width: 100%;
-  max-width: 900px;
   height: 320px;
   object-fit: cover;
   margin: 0 auto;
@@ -396,13 +395,17 @@ footer {
 
 /* Responsividade */
 @media (max-width: 900px) {
+  .banner {
+    padding: 20px 40px;
+  }
+  
   .banner img {
     max-width: 100%;
     height: 220px;
   }
+  
   .banner {
     min-height: 220px;
-    padding: 20px 0;
   }
 }
 
@@ -432,6 +435,10 @@ footer {
     display: block;
   }
 
+  .banner {
+    padding: 20px;
+  }
+
   .banner h1 {
     font-size: 32px;
   }
@@ -444,9 +451,9 @@ footer {
     height: 140px;
     max-width: 100%;
   }
+  
   .banner {
     min-height: 140px;
-    padding: 10px 0;
   }
 
   .destaques h2 {
@@ -464,8 +471,3 @@ footer {
     margin-bottom: 10px;
   }
 }
-
-
-
-
-
