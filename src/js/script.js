@@ -1,6 +1,6 @@
 // Configuração da API
 const API = {
-    baseURL: '/api/v1',
+    baseURL: '/src/php',
     headers: {
         'Content-Type': 'application/json'
     }
@@ -10,16 +10,7 @@ const API = {
 document.addEventListener('DOMContentLoaded', () => {
     initModais();
     initForms();
-    setupCSRF();
 });
-
-// Setup CSRF
-function setupCSRF() {
-    const token = document.querySelector('meta[name="csrf-token"]')?.content;
-    if (token) {
-        API.headers['X-CSRF-Token'] = token;
-    }
-}
 
 // Gerenciamento de Modais
 function initModais() {
@@ -75,11 +66,8 @@ async function submitForm(endpoint, data) {
             body: JSON.stringify(data)
         });
         
-        if (!response.ok) {
-            throw new Error('Erro na requisição');
-        }
-
         const result = await response.json();
+        
         if (!result.success) {
             throw new Error(result.message);
         }
